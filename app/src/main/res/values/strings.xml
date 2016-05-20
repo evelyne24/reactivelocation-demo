@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ReactiveLocationDemo</string>
+
+    <string name="settings_status">Settings Status</string>
+    <string name="settings_status_enabled">Settings enabled</string>
+    <string name="settings_status_disabled">Settings disabled</string>
+
+    <string name="location_status">Location Status</string>
+    <string name="location_unknown">Location unknown</string>
+    <string name="location_found">Location %1$f, %2$f</string>
+
+    <string name="try_again">Press to try again</string>
+    <string name="start">Start</string>
+    <string name="error">Error</string>
+    <string name="complete">Complete</string>
+
+</resources>
