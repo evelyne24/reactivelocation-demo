@@ -60,8 +60,16 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:7.0.1'
 
+    compile 'com.jakewharton.timber:timber:4.1.0'
+
     testCompile 'junit:junit:4.12'
+
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:23.4.0'
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    androidTestCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }
