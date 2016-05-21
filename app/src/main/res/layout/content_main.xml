@@ -40,7 +40,39 @@
             android:layout_height="wrap_content"
             android:layout_weight="70"
             android:gravity="right"
-            tools:text="@string/location_unknown"/>
+            tools:text="Location unknown"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eee"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:weightSum="100">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="@string/address_status"/>
+
+        <TextView
+            android:id="@+id/address_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="70"
+            android:gravity="right"
+            tools:text="Address unknown"/>
     </LinearLayout>
 
     <View

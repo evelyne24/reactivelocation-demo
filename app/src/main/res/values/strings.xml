@@ -5,9 +5,9 @@
     <string name="settings_status_enabled">Settings enabled</string>
     <string name="settings_status_disabled">Settings disabled</string>
 
-    <string name="location_status">Location Status</string>
-    <string name="location_unknown">Location unknown</string>
+    <string name="location_status">Location</string>
     <string name="location_found">Location %1$f, %2$f</string>
+    <string name="address_status">Address</string>
 
     <string name="wallet_status">Wallet Status</string>
     <string name="wallet_ready">Ready to pay</string>
