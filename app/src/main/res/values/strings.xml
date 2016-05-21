@@ -9,6 +9,10 @@
     <string name="location_unknown">Location unknown</string>
     <string name="location_found">Location %1$f, %2$f</string>
 
+    <string name="wallet_status">Wallet Status</string>
+    <string name="wallet_ready">Ready to pay</string>
+    <string name="wallet_not_ready">Not ready to pay</string>
+
     <string name="try_again">Press to try again</string>
     <string name="start">Start</string>
     <string name="error">Error</string>

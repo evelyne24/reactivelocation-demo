@@ -33,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
     @Inject ReactivePlayServices playServices;
 
     @Bind(R.id.location_status) TextView locationStatusView;
+    @Bind(R.id.wallet_status) TextView walletStatusView;
     @Bind(R.id.progress_bar) ProgressBar progressBar;
     @Bind(R.id.try_again) View tryAgainView;
     @Bind(R.id.try_again_button) Button tryAgainButton;
 
     private final LocationRequest locationRequest = createLocationRequest();
-    private Subscription subscription = Subscriptions.empty();
+    private Subscription locationSubscription = Subscriptions.empty();
+    private Subscription walletSubscription = Subscriptions.empty();
 
 
     @Override
@@ -58,11 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override protected void onStart() {
         super.onStart();
-        subscription = startLocationUpdates();
+        locationSubscription = startLocationUpdates();
+        walletSubscription = checkWalletReady();
     }
 
     @Override protected void onStop() {
-        subscription.unsubscribe();
+        locationSubscription.unsubscribe();
+        walletSubscription.unsubscribe();
         super.onStop();
     }
 
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     private class OnLocationAvailable implements Action1<Location> {
         @Override public void call(Location location) {
             showProgress(false);
-            locationStatusView.setTextColor(Color.GREEN);
+            locationStatusView.setTextColor(Color.BLUE);
             locationStatusView.setText(getString(R.string.location_found, location.getLatitude(), location.getLongitude()));
         }
     }
@@ -115,12 +119,32 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.try_again_button)
     void onTryAgainClicked(View view) {
         tryAgainView.setVisibility(GONE);
-        subscription.unsubscribe();
-        subscription = startLocationUpdates();
+        locationSubscription.unsubscribe();
+        locationSubscription = startLocationUpdates();
     }
 
     private void showProgress(boolean show) {
         progressBar.setVisibility(show ? VISIBLE : GONE);
+    }
+
+    private Subscription checkWalletReady() {
+        return playServices.walletObservable().isReadyToPay()
+                .subscribe(new Action1<Boolean>() {
+                    @Override public void call(Boolean ready) {
+                        if (ready) {
+                            walletStatusView.setText(R.string.wallet_ready);
+                            walletStatusView.setTextColor(Color.BLUE);
+                        } else {
+                            walletStatusView.setText(R.string.wallet_not_ready);
+                            walletStatusView.setTextColor(Color.RED);
+                        }
+                    }
+                }, new Action1<Throwable>() {
+                    @Override public void call(Throwable throwable) {
+                        walletStatusView.setText(throwable.getMessage());
+                        walletStatusView.setTextColor(Color.RED);
+                    }
+                });
     }
 
 }
