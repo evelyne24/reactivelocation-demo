@@ -34,7 +34,7 @@ public class DemoApp extends Application {
 
         appComponent.inject(this);
 
-        LeakCanary.install(this);
+        //LeakCanary.install(this);
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new DebugTree());
