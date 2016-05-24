@@ -17,5 +17,6 @@
     <string name="start">Start</string>
     <string name="error">Error</string>
     <string name="complete">Complete</string>
+    <string name="start_geocoding">Requesting geocoding...</string>
 
 </resources>

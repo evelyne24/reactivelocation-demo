@@ -3,14 +3,13 @@ package com.deliveroo.android.reactivelocation.demo;
 import android.app.Application;
 import android.os.StrictMode;
 
+import com.deliveroo.android.reactivelocation.ReactiveModule;
 import com.deliveroo.android.reactivelocation.demo.di.AppComponent;
 import com.deliveroo.android.reactivelocation.demo.di.AppModule;
 import com.deliveroo.android.reactivelocation.demo.di.DaggerAppComponent;
-import com.deliveroo.android.reactivelocation.permissions.ReactiveModule;
-import com.deliveroo.android.reactivelocation.wallet.ProductionWalletEnvironment;
-import com.deliveroo.android.reactivelocation.wallet.TestWalletEnvironment;
-import com.deliveroo.android.reactivelocation.wallet.WalletEnvironment;
-import com.squareup.leakcanary.LeakCanary;
+import com.deliveroo.android.reactivelocation.wallet.environments.ProductionWalletEnvironment;
+import com.deliveroo.android.reactivelocation.wallet.environments.TestWalletEnvironment;
+import com.deliveroo.android.reactivelocation.wallet.environments.WalletEnvironment;
 
 import timber.log.Timber;
 import timber.log.Timber.DebugTree;

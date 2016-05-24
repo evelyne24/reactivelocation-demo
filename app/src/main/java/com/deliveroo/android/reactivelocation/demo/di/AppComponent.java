@@ -1,7 +1,7 @@
 package com.deliveroo.android.reactivelocation.demo.di;
 
+import com.deliveroo.android.reactivelocation.ReactiveModule;
 import com.deliveroo.android.reactivelocation.demo.DemoApp;
-import com.deliveroo.android.reactivelocation.permissions.ReactiveModule;
 
 import javax.inject.Singleton;
 
